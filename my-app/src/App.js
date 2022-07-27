@@ -1,12 +1,12 @@
 import './App.css';
-import Items from './components/Items/Items';
+import Beers from './components/Beers/Beers';
 import Search  from './components/Search/Search'
 
 function App() {
   return (
     <div>
       <Search/>
-      <Items/>
+      <Beers/>
     </div>
   );
 }
