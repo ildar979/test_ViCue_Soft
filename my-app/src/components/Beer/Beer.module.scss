@@ -1,1 +1,36 @@
+.beer {
+  width: 300px;
+  height: 535px;
+  border: 1px solid black;
+  margin: 30px 15px;
+  display: flex;
+  flex-direction: column;
+}
 
+.beer__image {
+  height: 330px;
+  background-size: contain;
+  margin: 10px auto
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body__title {
+
+}
+
+.body__discription {
+  margin: 10px;
+}
+
+.body__moreInfo {
+  margin-bottom: 2px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    align-content: flex-end;
+}
