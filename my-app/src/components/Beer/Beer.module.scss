@@ -5,6 +5,7 @@
   margin: 30px 15px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .beer__image {
@@ -24,13 +25,11 @@
 }
 
 .body__discription {
-  margin: 10px;
+  margin: 10px 5px;
 }
 
 .body__moreInfo {
-  margin-bottom: 2px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    align-content: flex-end;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
 }

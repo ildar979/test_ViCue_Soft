@@ -1,12 +1,18 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Beers from './components/Beers/Beers';
-import Search  from './components/Search/Search'
+import MainPage from './Pages/Main/MainPage';
+import PersonalPage from './Pages/PersonalPage/PersonalPage';
 
 function App() {
+
+  const URL = 'https://api.punkapi.com/v2/beers/'
+
   return (
     <div>
-      <Search/>
-      <Beers/>
+      <Routes>
+        <Route path="/" element={<MainPage/>} />
+        <Route path="id" element={<PersonalPage/>} />
+      </Routes>
     </div>
   );
 }
