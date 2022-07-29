@@ -1,11 +1,11 @@
-import { initState } from '../initState'
+// import { beerState } from '../initState'
 
-export const beerReducer = (state = initState, action) => {
-  const { type, payload } = action
-  switch (type) {
-    case 'GET_ONE_BEER':
-      return { ...payload }
-    default:
-      return state;
-  }
-}
+// export const beerReducer = (state = beerState, action) => {
+//   const { type, payload } = action
+//   switch (type) {
+//     case 'GET_ONE_BEER':
+//       return { ...payload, beers: payload }
+//     default:
+//       return state;
+//   }
+// }

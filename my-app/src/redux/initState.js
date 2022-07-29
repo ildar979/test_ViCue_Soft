@@ -1,5 +1,17 @@
-export const initState = {
+// export const initState = {
+//   beers: [],
+//   // beer: {},
+//   currentBeer: [],
+// }
+
+export const beersState = {
   beers: [],
-  beer: {},
+}
+
+export const pageState = {
   currentBeer: [],
 }
+
+// export const beerState = {
+//   beer: [],
+// }

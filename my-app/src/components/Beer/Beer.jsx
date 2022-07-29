@@ -21,7 +21,7 @@ export default function Beer({ beer }) {
         <div className={ styles.body }>
           <h5 className={ styles.body__title }>{ beer.name }</h5>
           <p className={ styles.body__discription }>{ cutText(beer.description) }</p>
-          <Link to={`${ beer.id }`} className={ styles.body__moreInfo }>More...</Link>
+          <Link to={`beers/${ beer.id }`} className={ styles.body__moreInfo }>More...</Link>
         </div>
       </div>
   )

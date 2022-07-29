@@ -4,33 +4,50 @@ import Beer from '../Beer/Beer'
 import styles from './Beers.module.scss'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
+import { perSelector } from '../../redux/selector'
 
 export default function Beers() {
-
+  
   const URL = 'https://api.punkapi.com/v2/beers?page=1&per_page=80'
-  const [loading, setLoading] = useState(true)
-  const beers = useSelector(store => store.beers)
+  
+  const [loading, setLoading] = useState(false)
+  const { currentBeer } = useSelector(perSelector.getState)  
+  // console.log('***', currentBeer)
   const dispatch = useDispatch()
-
-  console.log('ящики с пивом', beers)
+  const [input, setInput] = useState('')
 
   useEffect(() => {
+    setLoading(true)
     axios.get(URL)
       .then(( data ) => {
         // console.log(data.data)
       dispatch({ type: 'SET_BEERS', payload: data.data })
       setLoading(false)       
       })
-
   }, [dispatch])
 
+  const filteredBeers = currentBeer.filter(beer => {
+    return beer.name.toLowerCase().includes(input.toLowerCase())
+  })
+
   return (
-    <div className={ styles.main } >
-      { loading ?
-       ( 'Loading...' ) :
-       (beers.map((beer) => <Beer beer={ beer } key={ beer.id }/>))
-      }
-      
-    </div>
+      <div>
+        <div>
+          <form className={ styles.search }>
+            <input className={ styles.search__input }
+            placeholder='Искать' 
+            type="search"
+            onChange={(event) => setInput(event.target.value) }/>
+            {/* <button className={ styles.search__btn } type="submit">Поиск</button> */}
+          </form>
+        </div>
+        <div className={ styles.main } >
+          { loading ?
+          ( 'Loading...' ) :
+          (filteredBeers?.map((beer) => <Beer beer={ beer } key={ beer.id }/>))
+          }
+          
+        </div>
+      </div>
   )
 }

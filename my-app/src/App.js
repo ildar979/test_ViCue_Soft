@@ -5,13 +5,12 @@ import PersonalPage from './Pages/PersonalPage/PersonalPage';
 
 function App() {
 
-  const URL = 'https://api.punkapi.com/v2/beers/'
 
   return (
     <div>
       <Routes>
         <Route path="/" element={<MainPage/>} />
-        <Route path="id" element={<PersonalPage/>} />
+        <Route path="beers/:id" element={<PersonalPage/>} />
       </Routes>
     </div>
   );

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-// import { taskSelector } from '../../redux/selector';
+// import { Link } from 'react-router-dom';
+import { beersSelector } from '../../redux/selector';
 
 export default function Pagination() {
 
   const dispatch = useDispatch()
-  const beers = useSelector(store => store.beers);
+  const {beers} = useSelector(beersSelector.getState)
 
   const [beersPerPage] = useState(5);
   const [currentPage,setCurrentPage] = useState(1)
@@ -30,9 +31,9 @@ export default function Pagination() {
         {
           pageNumber.map(number => (
             <li className="page-item" key={number}>
-              <a onClick={() => setCurrentPage(number)} href='!#' className='page-link'>
+              <button onClick={() => setCurrentPage(number)}  className='page-link'>
                 { number }
-              </a>
+              </button>
             </li>
           ))
         }
