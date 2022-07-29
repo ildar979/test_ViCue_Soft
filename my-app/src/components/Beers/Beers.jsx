@@ -12,7 +12,6 @@ export default function Beers() {
   
   const [loading, setLoading] = useState(false)
   const { currentBeer } = useSelector(perSelector.getState)  
-  // console.log('***', currentBeer)
   const dispatch = useDispatch()
   const [input, setInput] = useState('')
 
@@ -20,7 +19,6 @@ export default function Beers() {
     setLoading(true)
     axios.get(URL)
       .then(( data ) => {
-        // console.log(data.data)
       dispatch({ type: 'SET_BEERS', payload: data.data })
       setLoading(false)       
       })
@@ -38,7 +36,6 @@ export default function Beers() {
             placeholder='Искать' 
             type="search"
             onChange={(event) => setInput(event.target.value) }/>
-            {/* <button className={ styles.search__btn } type="submit">Поиск</button> */}
           </form>
         </div>
         <div className={ styles.main } >
